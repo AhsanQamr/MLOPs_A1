@@ -36,7 +36,7 @@ jobs:
 
     steps:
       - name: Send email notification
-        uses: dawidd6/action-send-mail@v4
+        uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
           server_port: 587
