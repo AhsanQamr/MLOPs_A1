@@ -40,6 +40,6 @@ jobs:
         with:
           connection_url: ${{ secrets.MAIL_URL }}
           subject: "subject: GitHub Actions job result from admin"
-          to: souravmalani95@example.com # Required recipient's address
+          to: souravmalani95@gmail.com # Required recipient's address
           from: Ahsan Qamar <qaahsan92@gmail.com> # Required sender full name and address
           body: Build job of ${{github.repository}} completed successfully!
