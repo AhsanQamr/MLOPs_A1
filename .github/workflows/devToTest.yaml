@@ -28,7 +28,7 @@ jobs:
           pip install pytest
 
       - name: Test with pytest
-        run:  python3 test_file.py
+        run: python3 test_file.py
 
   notify:
     runs-on: ubuntu-latest
@@ -36,7 +36,7 @@ jobs:
 
     steps:
       - name: Run email code
-              env:
-                USER_EMAIL: ${{ secrets.USER_EMAIL }}
-                USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
-              run: python email.py 
+        env:
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+        run: python email.py
