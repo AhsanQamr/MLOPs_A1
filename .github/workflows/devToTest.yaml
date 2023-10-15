@@ -38,7 +38,7 @@ jobs:
       - name: Send email notification
         uses: dawidd6/action-send-mail@v3
         with:
-          connection_url: ${{ smtp://qaahsan92@gmail.com:Ahsan@2048@smtp.gmail.com:587 }}
+          connection_url: ${{ secrets.MAIL_URL }}
           subject: "subject: GitHub Actions job result"
           to: souravmalani95@example.com # Required recipient's address
           from: Ahsan Qamar <qaahsan92@gmail.com> # Required sender full name and address
