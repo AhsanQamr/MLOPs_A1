@@ -4,5 +4,3 @@ pandas
 pytest
 numpy
 joblib
-smtplib
-ssl
