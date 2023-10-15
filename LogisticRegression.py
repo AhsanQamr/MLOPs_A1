@@ -17,7 +17,7 @@ from sklearn.preprocessing import StandardScaler
 
 
 data = pd.read_csv('diabetes.csv')
-data.head()
+data.tail()
 
 
 # Clean the data
