@@ -1,2 +1,6 @@
-unittest2
+Flask
+scikit-learn
+pandas
 pytest
+numpy
+joblib

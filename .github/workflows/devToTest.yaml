@@ -1,4 +1,4 @@
-name: Unit Test
+name: Python application
 
 on:
   pull_request:
@@ -6,26 +6,44 @@ on:
       - test
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Python
+      - name: Set up Python 3.10
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: "3.10"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest
 
-      - name: Run unit tests
-        run: python -m unittest discover -s tests -p 'test_*.py'
+      - name: Test with pytest
+        run:  python3 test_file.py
 
-      - name: Upload test results
-        uses: actions/upload-artifact@v2
+  notify:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Send email notification
+        uses: dawidd6/action-send-mail@v4
         with:
-          name: test-results
-          path: test-reports
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ i192048@nu.edu.pk }}
+          password: ${{ secrets.Password }}
+          subject: "Test Results: ${{ job.status }}"
+          to: i190434@nu.edu.pk
+          from: i192048@nu.edu.pk
+          body: |
+            The test results for the latest commit are: ${{ job.status }}
