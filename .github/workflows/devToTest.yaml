@@ -38,12 +38,8 @@ jobs:
       - name: Send email notification
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.USER_EMAIL }}
-          password: ${{ secrets.USER_PASSWORD }}
-          subject: "Test Results: ${{ job.status }}"
-          to: souravmalani95@gmail.com
-          from: qaahsan92@gmail.com
-          body: |
-            The test results for the latest commit are: ${{ job.status }}
+          connection_url: ${{ smtp://qaahsan92@gmail.com:Ahsan@2048@smtp.gmail.com:587 }}
+          subject: "subject: GitHub Actions job result"
+          to: souravmalani95@example.com # Required recipient's address
+          from: Ahsan Qamar <qaahsan92@gmail.com> # Required sender full name and address
+          body: Build job of ${{github.repository}} completed successfully!
