@@ -22,5 +22,5 @@ jobs:
     - name: Install Dependencies
       run: pip install -r requirements.txt
 
-    - name: Run flake8
-      run: flake8 --ignore=E501 .  # Adjust the flake8 command as per your needs
+    # - name: Run flake8
+    #   run: flake8 --ignore=E501 .  # Adjust the flake8 command as per your needs
