@@ -40,7 +40,7 @@ jobs:
         with:
           server_address: smtp.gmail.com
           server_port: 587
-          username: ${{ i192048@nu.edu.pk }}
+          username: ${{ secrets.Username }}
           password: ${{ secrets.Password }}
           subject: "Test Results: ${{ job.status }}"
           to: i190434@nu.edu.pk
