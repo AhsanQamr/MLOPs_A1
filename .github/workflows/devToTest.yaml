@@ -35,15 +35,8 @@ jobs:
     needs: build
 
     steps:
-      - name: Send email notification
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.Username }}
-          password: ${{ secrets.Password }}
-          subject: "Test Results: ${{ job.status }}"
-          to: i190434@nu.edu.pk
-          from: i192048@nu.edu.pk
-          body: |
-            The test results for the latest commit are: ${{ job.status }}
+      - name: Run email code
+              env:
+                USER_EMAIL: ${{ secrets.USER_EMAIL }}
+                USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+              run: python email.py 
